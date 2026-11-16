@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+ <!-- Not yet enabled (awaiting MP) 
+ 
+ <filter>
+  <name>Helmet Aiming - Gunner - Rotation</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <enable>
+   <condition>
+    <property>/systems/weapons/cannon/helmet-tracking</property>
+   </condition>
+  </enable>
+  <input>
+   <property>/sim/current-view/goal-heading-offset-deg</property>
+  </input>
+  <output>
+   <property>/systems/weapons/cannon/rotation</property>
+  </output>
+  <gain>1</gain>
+  <u_max>90</u_max>
+  <u_min>-90</u_min>
+ </filter>
+
+ <filter>
+  <name>Helmet Aiming - Gunner - HeadRotation</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/sim/current-view/goal-heading-offset-deg</property>
+  </input>
+  <output>
+   <property>/surface-positions/gunners-head</property>
+  </output>
+  <gain>1</gain>
+  <u_max>90</u_max>
+  <u_min>-90</u_min>
+ </filter>
+ 
+ -->
+ 
+ <filter>
+  <name>Helmet Aiming - Pilot - Rotate Right</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <enable>
+   <condition>
+    <property>/systems/weapons/cannon/helmet-tracking</property>
+    <less-than>
+     <property>/sim/current-view/goal-heading-offset-deg</property>
+     <value>120</value>
+    </less-than>
+   </condition>
+  </enable>
+  <input>
+   <property>/sim/current-view/goal-heading-offset-deg</property>
+  </input>
+  <output>
+   <property>/systems/weapons/cannon/rotation</property>
+  </output>
+  <gain>1</gain>
+  <u_max>120</u_max>
+  <u_min>0</u_min>
+ </filter>
+ 
+ <filter>
+  <name>Helmet Aiming - Pilot - Rotate Left</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <enable>
+   <condition>
+    <property>/systems/weapons/cannon/helmet-tracking</property>
+   <greater-than>
+    <property>/sim/current-view/goal-heading-offset-deg</property>
+    <value>240</value>
+   </greater-than>
+   </condition>
+  </enable>
+  <input>
+   <property>/sim/current-view/goal-heading-offset-deg</property>
+  </input>
+  <output>
+   <property>/systems/weapons/cannon/rotation</property>
+  </output>
+  <gain>1</gain>
+  <u_max>360</u_max>
+  <u_min>240</u_min>
+ </filter>
+ 
+ <filter>
+  <name>Helmet Aiming - Elevate Up</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <enable>
+   <condition>
+    <property>/systems/weapons/cannon/helmet-tracking</property>
+   </condition>
+  </enable>
+  <input>
+   <property>/sim/current-view/goal-pitch-offset-deg</property>
+  </input>
+  <output>
+   <property>/systems/weapons/cannon/elevation</property>
+  </output>
+  <gain>-1</gain>
+  <u_max>10</u_max>
+  <u_min>-80</u_min>
+ </filter>
+
+ <filter>
+  <name>Helmet Aiming - Pilot - HeadRotation</name>
+  <debug>false</debug>
+  <type>gain</type>
+  <input>
+   <property>/sim/current-view/goal-heading-offset-deg</property>
+  </input>
+  <output>
+   <property>/surface-positions/gunners-head</property>
+  </output>
+  <gain>1</gain>
+  <u_max>90</u_max>
+  <u_min>-90</u_min>
+ </filter>
+
+
+</PropertyList>

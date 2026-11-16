@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+************************************************************************
+Eurocopter EC 665 "Tigre" simulation config.
+
+************************************************************************
+-->
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <description>Eurocopter EC 665 (Yasim)</description>
+    <author>BARANGER Emmanuel (3D), StuartC ( FDM ), Geed ( Sound ),Garry Brown ( liveries )</author>
+    <status>1.0</status>
+    <license>GPL v2</license>
+
+    <flight-model>yasim</flight-model>
+    <aero>tigre</aero>
+    <fuel-fraction>0.8</fuel-fraction>
+	
+	 <rating>
+      <FDM type="int">4</FDM>
+      <systems type="int">2</systems>
+      <cockpit type="int">2</cockpit>
+      <model type="int">3</model>
+    </rating>
+
+    <startup>
+      <splash-texture>Aircraft/Tigre/tigre-splash.png</splash-texture>
+    </startup> 
+
+	<previews>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash1.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash2.png</path>
+	  </preview>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash3.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash4.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash5.png</path>
+	  </preview>
+
+	</previews>
+
+    <sound>
+      <path>Aircraft/Tigre/Sounds/tigre-sound.xml</path>
+    </sound>
+	
+	<systems>
+	 <electrical>
+      <path>Aircraft/Generic/generic-electrical.xml</path>
+    </electrical>
+
+     <autopilot>
+         <path>Aircraft/Tigre/System/autopilot-H.xml</path>
+     </autopilot>
+
+    </systems>
+
+    <model>
+      <path archive="y">Aircraft/Tigre/Models/tigre.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+      <tigre>
+        <state type="int">0</state>
+        <engine type="float">0.0</engine>
+        <rotor-step-deg type="float">-1.0</rotor-step-deg>
+      </tigre>
+    </model>
+	
+	
+	<hud>
+   <path n="1">Aircraft/Tigre/Hud/hud.xml</path>
+   <visibility n="1">true</visibility>
+   
+   <palette>
+    <color n="0">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">0.38</red>
+     <green type="float">1.0</green>
+     <blue type="float">0.22</blue>
+    </color>
+    <color n="1">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">1.0</red>
+     <green type="float">0.2</green>
+     <blue type="float">0.0</blue>
+    </color>
+   </palette>
+   
+  </hud>
+  
+  
+  <multiplay>
+			<generic>
+				  
+        <!-- Nav lights on -->
+      <int n="0" alias="/controls/switches/nav-lights-switch" />
+      <!-- Beacon on -->
+      <int n="1" alias="/controls/switches/beacon-switch" />
+      <!-- Landing lights on -->
+      <int n="2" alias="/controls/switches/landing-lights-switch" />
+	    <!-- Taxi light on -->
+      <int n="3" alias="/controls/switches/strobe-switch" />
+      <!-- Crashed -->
+      <int n="7" alias="/sim/crashed" />
+			
+		
+	
+				
+			</generic>
+		</multiplay>
+  
+  
+
+   <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>300</max-lb>
+    </weight>
+
+    <weight n="1">
+      <name>Co-Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>300</max-lb>
+    </weight>
+
+    <help>
+      <title>Tigre - background and help</title>
+      <line></line>
+      <key>
+        <name>{</name>
+        <desc>Start engines</desc>
+      </key>
+      <key>
+        <name>}</name>
+        <desc>Shutdown engines</desc>
+      </key>
+      <key>
+        <name>R</name>
+        <desc>Toggle rotor brake</desc>
+      </key>
+      <key>
+        <name>r</name>
+        <desc>Apply rotor brake</desc>
+      </key>
+    
+    </help>
+
+    <menubar include="Dialogs/tigre-menu.xml"/>
+
+  </sim>
+
+  <controls>
+    <engines>
+      <engine n="0">
+        <magnetos>0</magnetos>
+      </engine>
+      <engine n="1">
+        <magnetos>0</magnetos>
+      </engine>
+    </engines>
+    <gear>
+      <brake-parking>1</brake-parking>
+    </gear>
+    <rotor>
+      <reltarget>1</reltarget>
+      <maxreltorque>1</maxreltorque>
+    </rotor>
+  </controls>
+
+  <instrumentation>
+    <gsdi>
+      <serviceable type="bool">true</serviceable>
+      <enabled type="bool">true</enabled>
+    </gsdi>
+	
+	 <efis>
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">20</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+				<CSTR type="bool">1</CSTR>
+				<WPT type="bool">1</WPT>
+				<VORD type="bool">1</VORD>
+				<NDB type="bool">1</NDB>
+				<ARPT type="bool">1</ARPT>
+				<WX type="bool">1</WX>
+				<TERR type="bool">1</TERR>
+				<TRAF type="bool">1</TRAF>
+				<taxi type="bool">1</taxi>
+			</input>
+
+		
+		</efis>
+	
+  </instrumentation>
+
+  <input>
+    <keyboard include="Nasal/tigre-keyboard.xml"/>
+  </input>
+  
+  <environment>
+<turbulence>
+<use-cloud-turbulence>true</use-cloud-turbulence>
+</turbulence>
+</environment>
+
+<consumables>
+		<fuel>
+			<tank>
+				<name>Main</name>
+				<selected type="bool" write="n">1</selected>
+				<density-ppg type="double" write="n">6.682</density-ppg>
+			</tank>
+
+			<tank>
+				<name>Supply</name>
+				<selected type="bool" write="n">1</selected>
+				<density-ppg type="double" write="n">6.682</density-ppg>
+			</tank>
+		</fuel>
+	</consumables>
+
+  <rotors>
+    <main>
+      <rpm type="double">0</rpm>
+      <cone-deg type="double">0</cone-deg>
+      <cone1-deg type="double">0</cone1-deg>
+      <cone2-deg type="double">0</cone2-deg>
+      <cone3-deg type="double">0</cone3-deg>
+      <cone4-deg type="double">0</cone4-deg>
+    </main>
+  </rotors>
+
+  <nasal>
+    <tigre>
+      <file>Aircraft/Tigre/Nasal/doors.nas</file>
+      <file>Aircraft/Tigre/Nasal/immat.nas</file>
+      <file>Aircraft/Tigre/Nasal/tigre.nas</file>
+      <file>Aircraft/Tigre/Nasal/liveries.nas</file>
+      <file>Aircraft/Tigre/Nasal/bladevisible.nas</file>
+     <!-- <file>Aircraft/Tigre/Nasal/fcs-management.nas</file>
+
+      <file>Aircraft/Generic/helicopter-fcs.nas</file>-->
+	   </tigre>
+	   <terrain-map>
+ 
+<file>Aircraft/Tigre/Nasal/terrain-map.nas</file>
+ 
+</terrain-map>
+
+	<lights>
+      <file>Aircraft/Tigre/Nasal/Lights.nas</file>
+    </lights>
+	  
+   
+  </nasal>
+
+</PropertyList>
+

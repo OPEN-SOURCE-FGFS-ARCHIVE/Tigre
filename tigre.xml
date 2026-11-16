@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+
+<!-- offsets: x=2.695 y=0 z=-0.2 h=0 p=1.8 r=0 -->
+<!-- official RD + 0.53 m = yasim RD (reference datum) -->
+
+<!-- FDM based also on information given in NASA-CR-3144; TR-1087-1-->
+
+
+<airplane mass="6750" version="YASIM_VERSION_CURRENT">
+
+<approach speed="47" aoa="16">
+  <control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>
+</approach>
+
+<cruise speed="160" alt="0">
+  <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
+</cruise>
+
+
+
+<rotor name="main" x="-2.75" y="0.0" z="2.4" nx="0.05" ny="0" nz="1." fx="1" fy="0" fz="0" ccw="1"
+  maxcollective="22.8" mincollective="-0.6"
+  mincyclicele="-10.2" maxcyclicele="6.03"
+  mincyclicail="-4.23" maxcyclicail="5.0"
+  diameter="13" numblades="4" weightperblade="125" relbladecenter="0.5"
+  dynamic="1" rpm="395" rellenflaphinge="0.18" delta3="0"
+  delta=".125"
+  pitch-a="10"
+  pitch-b="15"
+  flapmin="-15"
+  flapmax="15"
+  flap0="-5"
+  flap0factor="0"
+  notorque="0"
+  dragfactor="0.30"
+  translift-ve="20"
+  translift-maxfactor="1.5"
+  ground-effect-constant="0.1"
+  twist="-8.5"
+  taper="1"
+  chord="0.37"
+  number-of-segments="8"
+  number-of-parts="8"
+  rel-len-where-incidence-is-measured="0.7"
+  rel-len-blade-start="0.076"
+
+  airfoil-lift-coefficient="3.46"
+  airfoil-drag-coefficient0="0.0064"
+  airfoil-drag-coefficient1="0.20"
+  incidence-stall-zero-speed="15"
+  incidence-stall-half-sonic-speed="14.5"
+  lift-factor-stall="0.18"
+  stall-change-over="5.5"
+  drag-factor-stall="2.0"
+  cyclic-factor="0.8"
+  rotor-correction-factor="0.95"
+  downwashfactor="1.0"
+>
+
+  <control-input axis="/controls/flight/aileron-trim" control="CYCLICAIL"/>
+  <control-input axis="/controls/flight/aileron" control="CYCLICAIL"
+                 src0="-1.0" src1="1.0"
+                 dst0="-1.0" dst1="1.0"/>
+  <control-input axis="/controls/flight/elevator-trim" control="CYCLICELE"/>
+  <control-input axis="/controls/flight/elevator" control="CYCLICELE"
+                 src0="-1.0" src1="1.0"
+                 dst0="-1.0" dst1="1.0"/>
+  <control-input axis="/controls/engines/engine[0]/throttle" control="COLLECTIVE"
+                 src0="0.0" src1="1.0"
+                 dst0="1.0" dst1="-1.0"/>
+<!---	  <control-input axis="/controls/flight/aileron-trim" control="CYCLICAIL" split="true"/>
+         <control-input axis="/controls/flight/fcs/roll" control="CYCLICAIL" src0="-1.0" src1="1.0" dst0="-1.0" dst1="1.0"/>
+         <control-input axis="/controls/engines/engine[0]/throttle" control="CYCLICAIL" src0="0.0" src1="1.0" dst0="-0.1" dst1="0.1"/>
+         <control-input axis="/controls/flight/elevator-trim" control="CYCLICELE" split="true"/>
+         <control-input axis="/controls/flight/fcs/pitch" control="CYCLICELE" src0="-1.0" src1="1.0" dst0="-1.0" dst1="1.0"/>
+         <control-input axis="/controls/engines/engine[0]/throttle" control="COLLECTIVE" src0="0.0" src1="1.0" dst0="1.0" dst1="-1.0"/>
+ 			 -->
+				 
+</rotor>
+
+
+<rotor name="tail" x="-10.5" y="-0.6" z="1.3" nx="0.07" ny="-1" nz="-0.05" fx="1" fy="0" fz="0" ccw="1"
+  maxcollective="21" mincollective="-15"
+  phi0="110"
+  diameter="1.91" numblades="3" weightperblade="1.5" relbladecenter="0.7"
+  dynamic="1.91" rpm="2719" rellenflaphinge="0.0" delta3="1" translift="0" delta="0.5"
+  sharedflaphinge="1"
+  flap0="-0.5"
+  pitch-a="10"
+  pitch-b="15"
+  airfoil-lift-coefficient="6.4"
+  airfoil-drag-coefficient0="0.0035"
+  airfoil-drag-coefficient1="0.10"
+  notorque="0"
+  taper="1"
+  chord="0.25"
+  number-of-segments="5"
+  number-of-parts="4"
+  rel-len-blade-start="0.33"
+  incidence-stall-zero-speed="9"
+  incidence-stall-half-sonic-speed="18"
+  lift-factor-stall="0.18"
+  stall-change-over="5.5"
+  drag-factor-stall="8"
+  rotor-correction-factor="1.0"
+  downwashfactor="1.0"
+>
+
+  <control-input axis="/controls/flight/rudder-trim" control="COLLECTIVE" invert="true"/>
+  <control-input axis="/controls/flight/rudder" control="COLLECTIVE" invert="true"
+                 src0="-1.0" src1="1.0"
+                 dst0="-1.0" dst1="1.0"/> 
+				 
+<!--				  <control-input axis="/controls/flight/fcs/yaw" control="COLLECTIVE" invert="true"
+					 src0="-1.0" src1="1.0" dst0="-0.66" dst1="0.66"/>
+		<control-input axis="/controls/flight/fcs/tail-rotor/throttle" control="COLLECTIVE"
+					   src0="-1.0" src1="1.0"
+					   dst0="-1.0" dst1="1.0"/>-->
+				 
+</rotor>
+
+
+<rotorgear
+ max-power-engine="1916"
+  max-power-rotor-brake="100"
+  rotorgear-friction="1.4"
+  engine-prop-factor="0.005"
+  engine-accel-limit="100"
+  yasimdragfactor="25.5"
+  yasimliftfactor="25"
+>
+  <control-input axis="/controls/engines/engine[0]/magnetos" control="ROTORGEARENGINEON"/>
+  <control-input axis="/controls/rotor/brake" control="ROTORBRAKE"
+                 src0="0.0" src1="1.0"
+                 dst0="0.0" dst1="1.0"/>
+  <control-input axis="/controls/rotor/reltarget" control="ROTORRELTARGET"
+                 src0="0.0" src1="2.0"
+                 dst0="0.0" dst1="2.0"/>
+  <control-input axis="/controls/rotor/maxreltorque" control="ROTORENGINEMAXRELTORQUE"
+                 src0="0.0" src1="1.0"
+                 dst0="0.0" dst1="1.0"/>
+</rotorgear>
+
+
+<cockpit x="-1.06" y="-0.4" z="0.65"/>
+
+<fuselage ax="1.95" ay="0" az="-.3" bx="0" by="0" bz="-.07" cx="5" 
+          width="1.72" taper="0.4" midpoint="1" idrag="0"/>
+
+
+<fuselage ax="0.15" ay="0" az="-.0" bx="-3.2" by="0" bz="-.07" cx="5" 
+          width="1.72" taper="1" midpoint="0.0" idrag="0"/>
+		  
+<fuselage ax="-3" ay="0" az="-.0" bx="-6" by="0" bz="0.5" cx="5" 
+          width="1.72" taper="0.3" midpoint="0.0" idrag="0"/>		  
+
+<fuselage ax="-6.05" ay="0" az="0.4" bx="-10.60" by="0" bz=".61" cz="0.25" cx="2" 
+          width="0.47" taper="0.7" midpoint="0" idrag="0.0"/>
+
+
+<vstab x="-10.45" y="0" z=".41" taper=".4" length="2.1" chord="1.2" sweep="25">
+  <stall aoa="16" width="4" peak="1.5"/>
+</vstab>
+
+<vstab x="-7.8" y="1.27" z=".12" taper="1" length=".65" chord=".40" sweep="0">
+  <stall aoa="16" width="4" peak="1.5"/>
+</vstab>
+
+<vstab x="-7.8" y="-1.27" z=".12" taper="1" length=".65" chord=".40" sweep="0">
+  <stall aoa="16" width="4" peak="1.5"/>
+</vstab>
+
+<hstab x="-7.61" y="0.05" z="0.6" taper="1.0" effectiveness="2.0" length="1.70" chord="0.66" sweep="0" incidence="0">
+  <stall aoa="0" width="0" peak="1.5"/>
+</hstab>
+
+ <!-- left gear -->
+  <gear x="-1.2" y="1.3" z="-1.2"
+        compression="0.1"
+        spring="3.2"
+        damp="1.0"
+        sfric="1.5"
+        dfric="0.8"
+        initial-load="1">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+       
+  </gear>
+
+  <!-- right gear -->
+  <gear x="-1.2" y="-1.3" z="-1.2"
+        compression="0.1"
+        spring="3.2"
+        damp="1.0"
+        sfric="1.5"
+        dfric="0.8"
+        initial-load="1">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+       
+  </gear>
+  
+  <!-- tail gear -->
+
+  <gear x="-8.75" y="0" z="-1.1"
+        compression="0.1"
+        spring="3"
+        damp="1.0"
+        sfric="1.5"
+        dfric="0.8">
+        <control-input axis="/controls/flight/rudder" control="STEER" square="true" src0="-1" dst0="-1.0" src1="1" dst1="1.0"/>
+        <control-output control="STEER" prop="controls/gear/steering"/>
+        
+  </gear>
+
+  <!-- Tail skid
+  <gear x="-10.6" y="0" z="-0.4"
+       
+        compression="0.01"
+        spring="0.1"
+        sfric="1"
+        dfric="1">
+  </gear> 
+ -->
+
+<tank x="-2.69" y="0" z="-.5" capacity="2000"/> <!-- main:   710 l (570 l usable) @ 6.682 ppg (H3EU.pdf) -->
+<tank x="-1.74" y="0" z="-.5" capacity="435"/> <!-- supply: 93 l (usable?) -->
+
+<ballast x=" 1.15" y="+0.0" z="0.0" mass="150"/>
+
+<ballast x="2.7" y="+0.0" z="1.0" mass="900"/>
+
+
+<!-- antiskid wheen ballast -->
+
+<ballast x="-1.2" y="-1.3" z="-1.25" mass="900"/>
+
+<ballast x="-1.2" y="1.3" z="-1.25" mass="900"/>
+
+<ballast x="-8.75" y="0" z="-1.1" mass="500"/>
+
+
+
+
+
+
+<thruster x="-2.75" y="0.0" z="1.55" vx="1" vy="0" vz="0" thrust="4000">
+  <control-input axis="/rotors/main/vibration/longitudinal" src0="-1" src1="1" dst0="-1" dst1="1" control="THROTTLE"/>
+</thruster>
+
+<thruster x="-2.75" y="0.0" z="1.55" vx="0" vy="1" vz="0" thrust="4000">
+  <control-input axis="/rotors/main/vibration/lateral" src0="-1" src1="1" dst0="-1" dst1="1" control="THROTTLE"/>
+</thruster>
+
+</airplane>

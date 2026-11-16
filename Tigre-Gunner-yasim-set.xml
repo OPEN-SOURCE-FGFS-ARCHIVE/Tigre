@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<!-- $Id$ -->
+<!--
+  MD500 multiplayer passenger view.
+
+  Copyright (C) 2009  Anders Gidenstam  (anders(at)gidenstam.org)
+  This file is licensed under the GPL license version 2 or later.
+-->
+<!--
+  Usage: fgfs - -prop:/sim/remote/pilot-callsign="remote pilot callsign" - -aircraft=Fi-156-passenger
+-->
+<PropertyList>
+
+ <sim>
+
+  <description>EC 665 Gunner (Yasim)</description>
+  <author>BARANGER Emmanuel (3D), StuartC, Algernon</author>
+
+	<previews>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash1.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash2.png</path>
+	  </preview>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash3.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash4.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash5.png</path>
+	  </preview>
+
+	</previews>
+  <status>1.0</status>
+    <license>GPL v2</license>
+  <aircraft-version>$Id$</aircraft-version>
+  <variant-of>tigre</variant-of>
+  
+  <flight-model>null</flight-model>
+
+  <presets>
+   <onground type="bool">false</onground>
+   <altitude-agl-ft type="double">30.0</altitude-agl-ft>
+  </presets>
+
+  <!-- 3d model -->
+  <model>
+   <path>Aircraft/Tigre//Models/Tigre-Gunner.xml</path>
+  </model>
+  
+  	<hud>
+   <path n="1">Aircraft/Tigre/Hud/hud.xml</path>
+   <visibility n="1">true</visibility>
+   
+   <palette>
+    <color n="0">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">0.38</red>
+     <green type="float">1.0</green>
+     <blue type="float">0.22</blue>
+    </color>
+    <color n="1">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">1.0</red>
+     <green type="float">0.2</green>
+     <blue type="float">0.0</blue>
+    </color>
+   </palette>
+   
+  </hud>
+
+  <!-- Views -->
+  <view n="0">
+   <!-- Passenger's position. -->
+   <name>Gunner View</name>
+   <type>lookfrom</type>
+   <internal type="bool">true</internal>
+   <config>
+    <internal type="bool">true</internal>
+    <from-model type="bool">false</from-model>
+    <from-model-idx type="int">0</from-model-idx>
+    <eye-lat-deg-path>/position/latitude-deg</eye-lat-deg-path>
+    <eye-lon-deg-path>/position/longitude-deg</eye-lon-deg-path>
+    <eye-alt-ft-path>/position/altitude-ft</eye-alt-ft-path>
+    <eye-heading-deg-path>/orientation/heading-deg</eye-heading-deg-path>
+    <eye-pitch-deg-path>/orientation/pitch-deg</eye-pitch-deg-path>
+    <eye-roll-deg-path>/orientation/roll-deg</eye-roll-deg-path>
+
+    <!-- x/y/z == right/up/back -->
+    <x-offset-m archive="y">  0.000 </x-offset-m>	<!-- Right -->
+      <y-offset-m archive="y">  1.507 </y-offset-m>	<!-- Up    -->
+      <z-offset-m archive="y"> -1.318 </z-offset-m>	<!-- Back  -->
+    <pitch-offset-deg>0</pitch-offset-deg>
+    <default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+   </config>
+  </view>
+  
+  
+  <view n="101">
+    <name>TILAD</name>
+    <type>lookfrom</type>
+    <internal archive="y">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+      <pitch-offset-deg>-5</pitch-offset-deg>
+      <x-offset-m archive="y">  0.000 </x-offset-m>	<!-- Right -->
+      <y-offset-m archive="y">  1.9 </y-offset-m>	<!-- Up    -->
+      <z-offset-m archive="y"> -1.4 </z-offset-m>	<!-- Back  -->
+      <pitch-offset-deg> -15.000 </pitch-offset-deg>
+      <default-field-of-view-deg>40</default-field-of-view-deg>
+	  <limits>
+	   <left>
+	    <heading-max-deg>-110</heading-max-deg>
+        <x-offset-threshold-deg>0</x-offset-threshold-deg>
+        <x-offset-max-m>0</x-offset-max-m>
+       </left>
+       <right>
+        <heading-max-deg>110</heading-max-deg>
+        <x-offset-threshold-deg>0</x-offset-threshold-deg>
+        <x-offset-max-m>0</x-offset-max-m>
+        </right>
+      <enabled>1</enabled>
+     </limits>
+    </config>
+	</view>
+
+  <view n="102">
+    <name>Tail Camera View</name>
+    <type>lookfrom</type>
+    <internal archive="y">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+      <x-offset-m archive="y">  0.000 </x-offset-m> <!--Right-->
+      <y-offset-m archive="y">  2.4 </y-offset-m> <!--Up-->
+      <z-offset-m archive="y"> 7.637 </z-offset-m> <!--Back-->
+      <pitch-offset-deg> -5 </pitch-offset-deg>
+      <default-field-of-view-deg type="double"> 30 </default-field-of-view-deg>
+    </config>
+  </view>
+
+ 
+  <chase-distance-m type="double">-18.0</chase-distance-m>
+<sound>
+      <path>Aircraft/Tigre/Sounds/tigre-sound.xml</path>
+    </sound>
+
+		
+
+  <!-- Aircraft specific help. -->
+  <!-- help include="help.xml"/ -->
+
+  <!-- systems>
+   <electrical>
+    <path/>
+   </electrical>
+  </systems>
+  <instrumentation>
+   <path/>
+  </instrumentation -->
+
+  <menubar>
+   <default>
+    <menu n="100">
+     <label>Tigre</label>
+     <item>
+      <label>Select Pilot</label>
+      <binding>
+       <command>nasal</command>
+       <script>
+        dual_control_tools.
+          copilot_dialog.show(aircraft_dual_control.pilot_type);
+       </script>
+      </binding>
+     </item>
+    </menu>
+   </default>
+  </menubar>
+
+ </sim>
+ 
+  <instrumentation>
+    <gsdi>
+      <serviceable type="bool">true</serviceable>
+      <enabled type="bool">true</enabled>
+    </gsdi>
+	
+	 <efis>
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">20</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+				<CSTR type="bool">1</CSTR>
+				<WPT type="bool">1</WPT>
+				<VORD type="bool">1</VORD>
+				<NDB type="bool">1</NDB>
+				<ARPT type="bool">1</ARPT>
+				<WX type="bool">1</WX>
+				<TERR type="bool">1</TERR>
+				<TRAF type="bool">1</TRAF>
+				<taxi type="bool">1</taxi>
+			</input>
+
+		
+		</efis>
+	
+  </instrumentation>
+ 
+
+ <nasal>
+  <tigre>
+      <file>Aircraft/Tigre/Nasal/doors.nas</file>
+      <file>Aircraft/Tigre/Nasal/immat.nas</file>
+      <file>Aircraft/Tigre/Nasal/tigre.nas</file>
+      <file>Aircraft/Tigre/Nasal/liveries.nas</file>
+      <file>Aircraft/Tigre/Nasal/bladevisible.nas</file>
+     <!-- <file>Aircraft/Tigre/Nasal/fcs-management.nas</file>
+
+      <file>Aircraft/Generic/helicopter-fcs.nas</file>-->
+	   </tigre>
+  <dual_control_tools>
+   <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+  </dual_control_tools>
+  <aircraft_dual_control>
+   <file>Aircraft/Tigre/Nasal/tigre-dual-control.nas</file>
+  </aircraft_dual_control>
+  <dual_control>
+   <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+  </dual_control>
+  <terrain-map>
+ 
+<file>Aircraft/Tigre/Nasal/terrain-map.nas</file>
+ 
+</terrain-map>
+ </nasal>
+
+</PropertyList>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">French Army, Tigermeet 2011</name>
+        <texture>Liveries/FrenchArmyTM.png</texture>
+
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>

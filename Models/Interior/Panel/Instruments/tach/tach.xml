@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<path>tach.ac</path>
+ 
+
+	<animation>
+		<type>rotate</type>
+		<object-name>TurbineNeedle</object-name>
+		<property>sim/rotors/main/rpm</property>
+<offsets> 
+<x-m>3.22</x-m> 
+<y-m>0.34</y-m> 
+<z-m>2.09</z-m> 
+<pitch-deg>-65</pitch-deg> 
+</offsets>
+
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>50</ind><dep>80</dep></entry>
+			<entry><ind>100</ind><dep>120</dep></entry>
+			<entry><ind>140</ind><dep>190</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>RotorNeedle</object-name>
+		<property>rotors/main/rpm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>221</ind><dep>80</dep></entry>
+			<entry><ind>442</ind><dep>120</dep></entry>
+			<entry><ind>619</ind><dep>190</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+		</axis>
+	</animation>
+</PropertyList>
+
